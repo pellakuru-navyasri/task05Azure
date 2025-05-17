@@ -1,6 +1,6 @@
 resource "azurerm_traffic_manager_profile" "this" {
-  name                = var.name
-  resource_group_name = var.resource_group_name
+  name                   = var.name
+  resource_group_name    = var.resource_group_name
   traffic_routing_method = var.routing_method
   dns_config {
     relative_name = var.name
@@ -20,10 +20,10 @@ resource "azurerm_traffic_manager_profile" "this" {
 }
 
 resource "azurerm_traffic_manager_azure_endpoint" "endpoints" {
-  for_each = var.endpoints
-  name                    = each.key
-  profile_id           = azurerm_traffic_manager_profile.this.id
+  for_each   = var.endpoints
+  name       = each.key
+  profile_id = azurerm_traffic_manager_profile.this.id
   #resource_group_name     = var.resource_group_name
-  target_resource_id      = each.value.target_resource_id
-  priority                = each.value.priority
+  target_resource_id = each.value.target_resource_id
+  priority           = each.value.priority
 }
