@@ -17,7 +17,7 @@ module "app_service_plans" {
 
   name           = each.value.name
   location       = var.resource_groups[each.value.rg_key].location
-  resource_group = module.resource_groups[each.value.rg_key].name
+  resource_group = var.resource_groups[each.value.rg_key].name
   sku            = each.value.sku
   worker_count   = each.value.worker_count
   tags           = each.value.tags
@@ -48,7 +48,6 @@ module "traffic_manager" {
   resource_group_name = var.traffic_manager.resource_group_name
   routing_method      = var.traffic_manager.routing_method
   tags                = var.traffic_manager.tags
-  depends_on          = [module.app_services]
 
   endpoints = {
     for key, ep in var.traffic_manager.endpoints : key => {
@@ -57,4 +56,5 @@ module "traffic_manager" {
       priority           = ep.priority
     }
   }
+  depends_on = [module.app_services]
 }
