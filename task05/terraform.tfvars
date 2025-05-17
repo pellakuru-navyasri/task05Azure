@@ -24,18 +24,19 @@ resource_groups = {
 
 app_service_plans = {
   asp1 = {
-    resource_group_name = "cmaz-vwx4iuxh-mod5-rg-01"
+
+    resource_group_name = "cmaz-vwx4iuxh-mod5-asp-01"
     location            = "eastus"
-    sku                 = "B1"
+    sku                 = "P0v3"
     worker_count        = 1
     tags = {
       Creator = "pellakuru_navyasri@epam.com"
     }
   }
   asp2 = {
-    resource_group_name = "cmaz-vwx4iuxh-mod5-rg-02"
+    resource_group_name = "cmaz-vwx4iuxh-mod5-asp-02"
     location            = "westus"
-    sku                 = "B1"
+    sku                 = "P1v3"
     worker_count        = 1
     tags = {
       Creator = "pellakuru_navyasri@epam.com"
@@ -46,7 +47,7 @@ app_service_plans = {
 
 app_services = {
   app1 = {
-    resource_group_name = "cmaz-vwx4iuxh-mod5-rg-01"
+    resource_group_name = "cmaz-vwx4iuxh-mod5-app-01"
     location            = "eastus"
     app_service_plan_id = ""
     allowed_ip_addresses = {
@@ -65,7 +66,7 @@ app_services = {
     }
   }
   app2 = {
-    resource_group_name = "cmaz-vwx4iuxh-mod5-rg-02"
+    resource_group_name = "cmaz-vwx4iuxh-mod5-app-02"
     location            = "westus"
     app_service_plan_id = ""
     allowed_ip_addresses = {
