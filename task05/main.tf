@@ -15,9 +15,9 @@ module "app_service_plans" {
 
   for_each = var.app_service_plans
 
-  name           = each.value.resource_group_name
-  location       = var.resource_groups[each.value.rg1].location
-  resource_group = module.resource_groups[each.value.rg1].name
+  name           = each.value.name
+  location       = var.resource_groups[each.value.rg_key].location
+  resource_group = module.resource_groups[each.value.rg_key].name
   sku            = each.value.sku
   worker_count   = each.value.worker_count
   tags           = each.value.tags
