@@ -12,7 +12,8 @@ variable "app_service_plans" {
   type = map(object({
     name         = string
     location     = string
-    sku          = string
+    sku_name     = string
+    os_type      = string
     worker_count = number
     tags         = map(string)
     rg_key       = string
@@ -22,6 +23,7 @@ variable "app_service_plans" {
 variable "app_services" {
   description = "Map of app services"
   type = map(object({
+    name                = string
     resource_group_name = string
     location            = string
     app_service_plan_id = string

@@ -7,11 +7,14 @@ variable "location" {
 variable "resource_group" {
   type = string
 }
-variable "sku" {
+variable "sku_name" {
   type = string
 }
 variable "worker_count" {
   type = number
+}
+variable "os_type" {
+  type = string
 }
 variable "tags" {
   type = map(string)

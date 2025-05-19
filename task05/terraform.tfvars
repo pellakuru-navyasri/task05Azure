@@ -27,9 +27,10 @@ app_service_plans = {
 
     name         = "cmaz-vwx4iuxh-mod5-asp-01"
     location     = "eastus"
-    sku          = "P0v3"
+    sku_name     = "P0v3"
     worker_count = 1
     rg_key       = "rg1"
+    os_type      = "Linux"
     tags = {
       Creator = "pellakuru_navyasri@epam.com"
     }
@@ -38,7 +39,8 @@ app_service_plans = {
     name         = "cmaz-vwx4iuxh-mod5-asp-02"
     rg_key       = "rg2"
     location     = "westus"
-    sku          = "P1v3"
+    sku_name     = "P1v3"
+    os_type      = "Windows"
     worker_count = 1
     tags = {
       Creator = "pellakuru_navyasri@epam.com"

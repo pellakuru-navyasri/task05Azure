@@ -18,7 +18,8 @@ module "app_service_plans" {
   name           = each.value.name
   location       = module.resource_groups[each.value.rg_key].location
   resource_group = module.resource_groups[each.value.rg_key].name
-  sku            = each.value.sku
+  sku_name       = each.value.sku_name
+  os_type        = each.value.os_type
   worker_count   = each.value.worker_count
   tags           = each.value.tags
   depends_on     = [module.resource_groups]
@@ -26,18 +27,18 @@ module "app_service_plans" {
 
 # Create App Services
 module "app_services" {
-  source = "./modules/app_service"
-
+  source   = "./modules/app_service"
   for_each = var.app_services
 
-  name                = each.key == "app1" ? "cmaz-vwx4iuxh-mod5-app-01" : "cmaz-vwx4iuxh-mod5-app-02"
-  resource_group_name = each.value.resource_group_name
+  name                = each.value.name
+  resource_group_name = each.key == "app1" ? module.resource_groups["rg1"].name : module.resource_groups["rg2"].name
   location            = each.value.location
-  service_plan_id     = module.app_service_plans[each.key == "app1" ? "asp1" : "asp2"].id
+  service_plan_id     = each.key == "app1" ? module.app_service_plans["asp1"].id : module.app_service_plans["asp2"].id
   allowed_ip_address  = each.value.allowed_ip_addresses
   tm_rule             = each.value.tm_rule
   tags                = each.value.tags
-  depends_on          = [module.app_service_plans]
+
+  depends_on = [module.app_service_plans, module.resource_groups]
 }
 
 # Create Traffic Manager Profile with endpoints
