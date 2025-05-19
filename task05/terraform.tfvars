@@ -53,6 +53,8 @@ app_services = {
   app1 = {
     name                = "cmaz-vwx4iuxh-mod5-app-01"
     resource_group_name = "cmaz-vwx4iuxh-mod5-rg-01"
+    name                = "cmaz-vwx4iuxh-mod5-app-01"
+    resource_group_name = "cmaz-vwx4iuxh-mod5-rg-01"
     location            = "eastus"
     app_service_plan_id = ""
     allowed_ip_addresses = {
@@ -71,6 +73,8 @@ app_services = {
     }
   }
   app2 = {
+    name                = "cmaz-vwx4iuxh-mod5-app-02"
+    resource_group_name = "cmaz-vwx4iuxh-mod5-rg-02"
     name                = "cmaz-vwx4iuxh-mod5-app-02"
     resource_group_name = "cmaz-vwx4iuxh-mod5-rg-02"
     location            = "westus"

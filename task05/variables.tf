@@ -24,6 +24,7 @@ variable "app_services" {
   description = "Map of app services"
   type = map(object({
     name                = string
+    name                = string
     resource_group_name = string
     location            = string
     app_service_plan_id = string
