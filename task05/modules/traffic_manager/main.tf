@@ -25,5 +25,5 @@ resource "azurerm_traffic_manager_azure_endpoint" "endpoints" {
   profile_id = azurerm_traffic_manager_profile.this.id
   #resource_group_name     = var.resource_group_name
   target_resource_id = each.value.target_resource_id
-  priority           = each.value.priority
+  #priority           = each.value.priority
 }
