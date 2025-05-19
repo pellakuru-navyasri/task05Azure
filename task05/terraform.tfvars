@@ -61,12 +61,12 @@ app_services = {
       ip1 = {
         name       = "allow-ip"
         ip_address = "18.153.146.156/32"
-        priority   = 101
+        # priority   = 101
       }
     }
     tm_rule = {
-      name     = "allow-tm"
-      priority = 100
+      name = "allow-tm"
+      # priority = 100
     }
     tags = {
       Creator = "pellakuru_navyasri@epam.com"
@@ -83,12 +83,12 @@ app_services = {
       ip1 = {
         name       = "allow-ip"
         ip_address = "18.153.146.156/32"
-        priority   = 101
+        #priority   = 101
       }
     }
     tm_rule = {
-      name     = "allow-tm"
-      priority = 100
+      name = "allow-tm"
+      #priority = 100
     }
     tags = {
       Creator = "pellakuru_navyasri@epam.com"
@@ -107,12 +107,12 @@ traffic_manager = {
     app1 = {
       target_resource_id = ""
       location           = "eastus"
-      priority           = 1
+      # priority           = 1
     }
     app2 = {
       target_resource_id = ""
       location           = "westus"
-      priority           = 2
+      # priority           = 2
     }
   }
 }
