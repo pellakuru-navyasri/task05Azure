@@ -5,4 +5,5 @@ resource "azurerm_service_plan" "this" {
   os_type             = var.os_type
   tags                = var.tags
   sku_name            = var.sku_name
+  worker_count        = var.worker_count
 }
