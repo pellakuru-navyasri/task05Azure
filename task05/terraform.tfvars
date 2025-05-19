@@ -30,7 +30,7 @@ app_service_plans = {
     sku_name     = "P0v3"
     worker_count = 2
     rg_key       = "rg1"
-    os_type      = "Linux"
+    os_type      = "Windows"
     tags = {
       Creator = "pellakuru_navyasri@epam.com"
     }
