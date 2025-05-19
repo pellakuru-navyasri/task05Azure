@@ -30,11 +30,11 @@ variable "app_services" {
     allowed_ip_addresses = map(object({
       name       = string
       ip_address = string
-      #priority   = number
+      priority   = number
     }))
     tm_rule = object({
-      name = string
-      #priority = number
+      name     = string
+      priority = number
     })
     tags = map(string)
   }))
@@ -50,7 +50,7 @@ variable "traffic_manager" {
     endpoints = map(object({
       target_resource_id = string
       location           = string
-      #priority           = number
+      priority           = number
     }))
   })
 }
