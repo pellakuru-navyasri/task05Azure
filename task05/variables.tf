@@ -10,7 +10,7 @@ variable "app_service_plans" {
   description = "Map of app service plans"
   type = map(object({
     name         = string
-    sku     = string
+    sku          = string
     os_type      = string
     worker_count = number
     rg_key       = string

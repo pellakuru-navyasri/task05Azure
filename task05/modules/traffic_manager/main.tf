@@ -47,11 +47,11 @@ resource "azurerm_traffic_manager_profile" "tm_p" {
 }
 
 resource "azurerm_traffic_manager_azure_endpoint" "endpoints" {
-  for_each   = var.endpoints
-  name       = each.value.name
-  profile_id = azurerm_traffic_manager_profile.tm_p.id
+  for_each           = var.endpoints
+  name               = each.value.name
+  profile_id         = azurerm_traffic_manager_profile.tm_p.id
   target_resource_id = each.value.resource_id
-  priority = each.value.pr
+  priority           = each.value.pr
 
   depends_on = [azurerm_traffic_manager_profile.tm_p]
 }
