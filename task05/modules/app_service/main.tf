@@ -23,6 +23,12 @@ resource "azurerm_windows_web_app" "this" {
       action      = "Allow"
       priority    = var.tm_rule.priority
     }
+    ip_restriction {
+      name        = "DenyAllOthers"
+      ip_address  = "0.0.0.0/0"  # Matches all IPs not explicitly allowed
+      action      = "Deny"
+      priority    = 1000         # Priority must be higher than any Allow rule
+    }
   }
 
   tags = var.tags
