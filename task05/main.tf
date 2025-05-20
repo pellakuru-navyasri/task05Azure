@@ -1,5 +1,5 @@
 # Create resource groups
-module "resource_groups" {
+/*module "resource_groups" {
   source = "./modules/resource_group"
 
   for_each = var.resource_groups
@@ -24,7 +24,7 @@ module "app_service_plans" {
   tags           = each.value.tags
   depends_on     = [module.resource_groups]
 }
-/*
+
 # Create App Services
 module "app_services" {
   source   = "./modules/app_service"
@@ -60,6 +60,28 @@ module "traffic_manager" {
   depends_on = [module.app_services]
 }
 */
+module "rg" {
+  source   = "./modules/resource_group"
+  for_each = var.resource_groups
+  name     = each.value.name
+  location = each.value.location
+  tags     = var.tags
+}
+
+module "ASP" {
+  source         = "./modules/app_service_plan"
+  for_each       = var.app_service_plans
+  name           = each.value.name
+  sku            = each.value.sku
+  worker_count   = each.value.worker_count
+  resource_group = var.resource_groups[each.value.rg_key].name
+  location       = var.resource_groups[each.value.rg_key].location
+  os_type        = each.value.os_type
+  tags           = var.tags
+
+  depends_on = [module.rg]
+}
+
 module "APP" {
   source   = "./modules/app_service"
   for_each = var.app_services

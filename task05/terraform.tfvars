@@ -1,24 +1,24 @@
-resource_groups = {
+/*resource_groups = {
   rg1 = {
     name     = "cmaz-vwx4iuxh-mod5-rg-01"
     location = "eastus"
-    /* tags = {
+     tags = {
       Creator = "pellakuru_navyasri@epam.com"
-    }*/
+    }
   }
   rg2 = {
     name     = "cmaz-vwx4iuxh-mod5-rg-02"
     location = "westus"
     /*tags = {
       Creator = "pellakuru_navyasri@epam.com"
-    }*/
+    }
   }
   rg3 = {
     name     = "cmaz-vwx4iuxh-mod5-rg-03"
     location = "centralus"
-    /*tags = {
+    tags = {
       Creator = "pellakuru_navyasri@epam.com"
-    }*/
+    }
   }
 }
 
@@ -31,9 +31,9 @@ app_service_plans = {
     worker_count = 2
     rg_key       = "rg1"
     os_type      = "Windows"
-    /* tags = {
+    tags = {
       Creator = "pellakuru_navyasri@epam.com"
-    }*/
+    }
   }
   asp2 = {
     name         = "cmaz-vwx4iuxh-mod5-asp-02"
@@ -42,13 +42,13 @@ app_service_plans = {
     sku_name     = "P1v3"
     os_type      = "Windows"
     worker_count = 1
-    /*tags = {
+    tags = {
       Creator = "pellakuru_navyasri@epam.com"
-    }*/
+    }
   }
 }
 
-/*
+
 app_services = {
   app1 = {
     name                = "cmaz-vwx4iuxh-mod5-app-01"
@@ -112,6 +112,42 @@ traffic_manager = {
     }
   }
 }*/
+resource_groups = {
+  rg1 = {
+    name     = "cmaz-vwx4iuxh-mod5-rg-01"
+    location = "West US"
+  }
+  rg2 = {
+    name     = "cmaz-vwx4iuxh-mod5-rg-02"
+    location = "East US"
+  }
+  rg3 = {
+    name     = "cmaz-vwx4iuxh-mod5-rg-03"
+    location = "Central US"
+  }
+}
+
+tags = {
+  Creator = "pellakuru_navyasri@epam.com"
+}
+
+app_service_plans = {
+  asp1 = {
+    name         = "cmaz-vwx4iuxh-mod5-asp-01"
+    sku          = "P0v3"
+    worker_count = 2
+    os_type      = "Windows"
+    rg_key       = "rg1"
+  },
+  asp2 = {
+    name         = "cmaz-vwx4iuxh-mod5-asp-02"
+    sku          = "P1v3"
+    worker_count = 1
+    os_type      = "Windows"
+    rg_key       = "rg2"
+  }
+}
+
 app_services = {
   app1 = {
     name    = "cmaz-vwx4iuxh-mod5-app-01"
@@ -141,6 +177,4 @@ pr_app1 = 1
 # Resource Groups
 
 # Centralized Tags Block
-tags = {
-  Creator = "pellakuru_navyasri@epam.com"
-}
+

@@ -3,7 +3,6 @@ variable "resource_groups" {
   type = map(object({
     name     = string
     location = string
-    tags     = map(string)
   }))
 }
 
@@ -11,11 +10,9 @@ variable "app_service_plans" {
   description = "Map of app service plans"
   type = map(object({
     name         = string
-    location     = string
-    sku_name     = string
+    sku     = string
     os_type      = string
     worker_count = number
-    tags         = map(string)
     rg_key       = string
   }))
 }
