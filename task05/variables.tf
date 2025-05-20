@@ -124,5 +124,6 @@ variable "pr_app2" {
   type        = string
 }
 variable "tags" {
-  type = map(string)
+  type        = map(string)
+  description = "tags to apply on resources"
 }
