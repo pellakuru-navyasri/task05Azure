@@ -1,13 +1,13 @@
 variable "name" {
   description = "name of resource grp"
-  type = string
+  type        = string
 }
 variable "location" {
   description = "region"
-  type = string
+  type        = string
 }
 
 variable "tags" {
   description = "tags to apply"
-  type = map(string)
+  type        = map(string)
 }
