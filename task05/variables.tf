@@ -64,6 +64,7 @@ variable "tags" {
 # priority   = number
 #}))
 #}*/
+
 variable "resource_groups" {
   description = "Map of resource groups with names and locations"
   type = map(object({
@@ -87,6 +88,7 @@ variable "app_service_plans" {
     rg_key       = string
   }))
 }
+
 variable "app_services" {
   description = "Map of App Services"
   type = map(object({
