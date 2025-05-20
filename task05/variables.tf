@@ -1,4 +1,4 @@
-variable "resource_groups" {
+/*variable "resource_groups" {
   description = "Map of resource groups"
   type = map(object({
     name     = string
@@ -17,7 +17,7 @@ variable "app_service_plans" {
   }))
 }
 
-/*variable "app_services" {
+variable "app_services" {
   description = "Map of app services"
   type = map(object({
     name                = string
@@ -64,7 +64,29 @@ variable "tags" {
 # priority   = number
 #}))
 #}*/
+variable "resource_groups" {
+  description = "Map of resource groups with names and locations"
+  type = map(object({
+    name     = string
+    location = string
+  }))
+}
 
+variable "tags" {
+  description = "Tags to apply on resources"
+  type        = map(string)
+}
+
+variable "app_service_plans" {
+  description = "Map of App Service Plans"
+  type = map(object({
+    name         = string
+    sku          = string
+    worker_count = string
+    os_type      = string
+    rg_key       = string
+  }))
+}
 variable "app_services" {
   description = "Map of App Services"
   type = map(object({
@@ -122,8 +144,4 @@ variable "pr_app1" {
 variable "pr_app2" {
   description = "Priority of App 2"
   type        = string
-}
-variable "tags" {
-  type        = map(string)
-  description = "tags to apply on resources"
 }
