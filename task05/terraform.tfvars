@@ -63,7 +63,7 @@ app_services = {
       }
     }
     tm_rule = {
-      name = "allow-tm"
+      name     = "allow-tm"
       priority = 100
     }
     tags = {
@@ -83,7 +83,7 @@ app_services = {
       }
     }
     tm_rule = {
-      name = "allow-tm"
+      name     = "allow-tm"
       priority = 100
     }
     tags = {
