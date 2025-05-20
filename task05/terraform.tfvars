@@ -2,23 +2,23 @@ resource_groups = {
   rg1 = {
     name     = "cmaz-vwx4iuxh-mod5-rg-01"
     location = "eastus"
-    tags = {
+    /* tags = {
       Creator = "pellakuru_navyasri@epam.com"
-    }
+    }*/
   }
   rg2 = {
     name     = "cmaz-vwx4iuxh-mod5-rg-02"
     location = "westus"
-    tags = {
+    /*tags = {
       Creator = "pellakuru_navyasri@epam.com"
-    }
+    }*/
   }
   rg3 = {
     name     = "cmaz-vwx4iuxh-mod5-rg-03"
     location = "centralus"
-    tags = {
+    /*tags = {
       Creator = "pellakuru_navyasri@epam.com"
-    }
+    }*/
   }
 }
 
@@ -31,9 +31,9 @@ app_service_plans = {
     worker_count = 2
     rg_key       = "rg1"
     os_type      = "Windows"
-    tags = {
+    /* tags = {
       Creator = "pellakuru_navyasri@epam.com"
-    }
+    }*/
   }
   asp2 = {
     name         = "cmaz-vwx4iuxh-mod5-asp-02"
@@ -42,13 +42,13 @@ app_service_plans = {
     sku_name     = "P1v3"
     os_type      = "Windows"
     worker_count = 1
-    tags = {
+    /*tags = {
       Creator = "pellakuru_navyasri@epam.com"
-    }
+    }*/
   }
 }
 
-
+/*
 app_services = {
   app1 = {
     name                = "cmaz-vwx4iuxh-mod5-app-01"
@@ -111,4 +111,36 @@ traffic_manager = {
       priority           = 2
     }
   }
+}*/
+app_services = {
+  app1 = {
+    name    = "cmaz-vwx4iuxh-mod5-app-01"
+    rg_key  = "rg1"
+    asp_key = "asp1"
+  },
+  app2 = {
+    name    = "cmaz-vwx4iuxh-mod5-app-02"
+    rg_key  = "rg2"
+    asp_key = "asp2"
+  }
+}
+
+allow_ip_rule  = "allow-ip"
+allow_tag_rule = "allow-tm"
+allow-ip       = "18.153.146.156/32"
+
+traf_name           = "cmaz-vwx4iuxh-mod5-traf"
+traf_routing_method = "Performance"
+
+tr_rg   = "rg3"
+tr_app1 = "app1"
+tr_app2 = "app2"
+
+pr_app2 = 2
+pr_app1 = 1
+# Resource Groups
+
+# Centralized Tags Block
+tags = {
+  Creator = "pellakuru_navyasri@epam.com"
 }
